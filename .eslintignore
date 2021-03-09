@@ -7,7 +7,6 @@ yarn.lock
 *.css
 *.scss
 
-
 node_modules/
 dist/
 public/

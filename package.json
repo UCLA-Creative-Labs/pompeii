@@ -1,12 +1,29 @@
 {
   "private": true,
   "scripts": {
-    "lint": "npx eslint '**/*.js' && npx stylelint '**/*.css' '**/*.scss'"
+    "start": "webpack serve --open --config webpack.dev.js --host=0.0.0.0",
+    "build": "webpack --config webpack.prod.js",
+    "lint": "npx eslint '**/*.js' && npx stylelint '**/*.css' '**/*.scss'",
+    "no-lock": "./scripts/noPackageLock.sh"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.13.10",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^8.0.0",
     "eslint": "^7.6.0",
     "eslint-plugin-import": "^2.22.0",
+    "html-webpack-plugin": "^5.3.1",
+    "json5-loader": "^4.0.1",
+    "mini-css-extract-plugin": "^1.3.9",
+    "sass": "^1.32.8",
+    "sass-loader": "^11.0.1",
     "stylelint": "^13.6.1",
-    "stylelint-config-standard": "^20.0.0"
+    "stylelint-config-standard": "^20.0.0",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.24.4",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.7.3"
   }
 }

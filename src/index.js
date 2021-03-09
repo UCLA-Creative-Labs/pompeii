@@ -27,7 +27,7 @@ const game = new _PHASER.Game(config);
 
 function preload() {
   // 'this' === Phaser.Scene
-  this.load.image('repeating-background', '../assets/preload.png');
+  this.load.image('repeating-background', 'assets/preload.png');
 }
 
 function create() {

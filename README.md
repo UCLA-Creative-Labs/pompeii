@@ -16,13 +16,13 @@ We use [`yarn`](https://classic.yarnpkg.com/en/docs/install#mac-stable) as our p
 The basic commands to get this repository and start are:
 
 ```
-$ git clone https://github.com/UCLA-Creative-Labs/password.git
-$ cd password
+$ git clone https://github.com/UCLA-Creative-Labs/pompeii.git
+$ cd pompeii
 $ yarn install
 $ yarn start
 ```
 
-If you run into an issue, feel free to make an issue [here](https://github.com/UCLA-Creative-Labs/password/issues). If you have a fix, even better! Check out the follow section to learn how to contribute!
+If you run into an issue, feel free to make an issue [here](https://github.com/UCLA-Creative-Labs/pompeii/issues). If you have a fix, even better! Check out the follow section to learn how to contribute!
 
 ## Contributing
 
@@ -34,7 +34,7 @@ Here's a quick guide on how to get started.
 2. Create an issue and/or mark an existing one to let everyone know that you are working your magic ⚡️
 3. Beep boop away!
 4. **Before you push**, it's always a good idea to check that your changes follow our linter rules! Run `yarn lint` at the root directory and watch it judge your code. 
-5. Stage, commit, and push your changes to make a [pull request](https://github.com/UCLA-Creative-Labs/password/pulls)!
+5. Stage, commit, and push your changes to make a [pull request](https://github.com/UCLA-Creative-Labs/pompeii/pulls)!
 6. A maintainer will review your code and if it passes all the checks, your contribution will be merged on to `main` 🥳
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) and [DESIGN_GUIDELINES.md](DESIGN_GUIDELINES.md) for more info.
