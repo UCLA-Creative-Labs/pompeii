@@ -37,7 +37,7 @@ Here's a quick guide on how to get started.
 5. Stage, commit, and push your changes to make a [pull request](https://github.com/UCLA-Creative-Labs/pompeii/pulls)!
 6. A maintainer will review your code and if it passes all the checks, your contribution will be merged on to `main` 🥳
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) and [DESIGN_GUIDELINES.md](DESIGN_GUIDELINES.md) for more info.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for more info.
 
 ## Getting Help
 
