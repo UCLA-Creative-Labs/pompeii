@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "scripts": {
+    "lint": "npx eslint '**/*.js' && npx stylelint '**/*.css' '**/*.scss'"
+  },
+  "devDependencies": {
+    "eslint": "^7.6.0",
+    "eslint-plugin-import": "^2.22.0",
+    "stylelint": "^13.6.1",
+    "stylelint-config-standard": "^20.0.0"
+  }
+}
