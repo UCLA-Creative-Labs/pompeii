@@ -5,6 +5,10 @@
  */
 import MainScene from './main_scene';
 import StartScene from './start_screen';
+
+require('./styles/index.scss');
+require('./styles/globals.scss');
+
 // eslint-disable-next-line no-undef
 const _PHASER = Phaser;
 /**
