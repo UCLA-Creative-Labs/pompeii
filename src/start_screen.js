@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 export default class StartScreen extends Phaser.Scene {
   constructor() {
     super('StartScreen');
@@ -12,10 +13,10 @@ export default class StartScreen extends Phaser.Scene {
     // Change scene on click
     this.input.on(
       'pointerup',
-      function (pointer) {
+      function () {
         this.scene.start('MainScene');
       },
-      this
+      this,
     );
     // You can access the game's config to read the width & height
     const { width, height } = this.sys.game.config;

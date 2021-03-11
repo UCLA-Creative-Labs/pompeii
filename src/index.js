@@ -3,10 +3,9 @@
  * Asset Credits:
  *  - Subtle Patterns
  */
-
-// eslint-disable-next-line no-undef
 import MainScene from './main_scene';
 import StartScene from './start_screen';
+// eslint-disable-next-line no-undef
 const _PHASER = Phaser;
 /**
  * PHASER

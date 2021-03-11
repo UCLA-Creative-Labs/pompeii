@@ -3,8 +3,8 @@
  * Asset Credits:
  *  - Nintendo Mario Tiles, Educational use only
  */
-
 import Player from './player';
+// eslint-disable-next-line no-undef
 export default class MainScene extends Phaser.Scene {
   constructor() {
     super('MainScene');
@@ -15,7 +15,7 @@ export default class MainScene extends Phaser.Scene {
     this.load.atlas(
       'atlas',
       'https://www.mikewesthad.com/phaser-3-tilemap-blog-posts/post-1/assets/atlas/atlas.png',
-      'https://www.mikewesthad.com/phaser-3-tilemap-blog-posts/post-1/assets/atlas/atlas.json'
+      'https://www.mikewesthad.com/phaser-3-tilemap-blog-posts/post-1/assets/atlas/atlas.json',
     );
 
     this.load.image('tiles', 'assets/tilesets/pokemon_tileset_cropped.png');
@@ -30,7 +30,7 @@ export default class MainScene extends Phaser.Scene {
     const tileset = map.addTilesetImage('pokemon_tileset_4', 'tiles');
 
     // Collision boundaries can be set using Tiled collision editor
-    const bottomLayer = map.createStaticLayer('BottomLayer', tileset, 0, 0);
+    map.createStaticLayer('BottomLayer', tileset, 0, 0);
     const topLayer = map.createStaticLayer('TopLayer', tileset, 0, 0);
     this.cursors = this.input.keyboard.createCursorKeys();
     this.player = new Player(this, this.cursors, 500, 500);
