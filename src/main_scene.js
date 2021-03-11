@@ -30,7 +30,6 @@ export default class MainScene extends Phaser.Scene {
 
   create() {
     this.matter.world.setBounds(0, 0, window.innerWidth, window.innerHeight);
-    console.log(this.matter.world.walls);
     const map = this.make.tilemap({ key: 'map' });
 
     // Parameters are the name you gave the tileset in Tiled and then the key of the tileset image in
