@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    index: './src/main-scene.js',
+    index: './src/index.js',
   },
 
   module: {
