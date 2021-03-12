@@ -5,6 +5,7 @@
  */
 import Player from './player';
 import NPC from './NPC';
+import Shiba from './shiba';
 // eslint-disable-next-line no-undef
 export default class MainScene extends Phaser.Scene {
   constructor() {
@@ -29,9 +30,8 @@ export default class MainScene extends Phaser.Scene {
   }
 
   create() {
-    this.matter.world.setBounds(0, 0, window.innerWidth, window.innerHeight);
     const map = this.make.tilemap({ key: 'map' });
-
+    this.matter.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
     // Parameters are the name you gave the tileset in Tiled and then the key of the tileset image in
     // Phaser's cache (i.e. the name you used in preload)
     const tileset = map.addTilesetImage('pokemon_tileset_4', 'tiles');
@@ -45,7 +45,7 @@ export default class MainScene extends Phaser.Scene {
     // Create NPCs
     this.npcs = [];
     // Create shiba
-    this.shiba = new NPC(this, 400, 400, 'shiba');
+    this.shiba = new Shiba(this, 400, 400, 'shiba');
     this.npcs.push(this.shiba);
     // All objects in aboveLayer will collide
     topLayer.setCollisionByExclusion([-1]);
