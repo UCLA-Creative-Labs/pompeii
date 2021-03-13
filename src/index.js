@@ -30,7 +30,6 @@ let config = {
 };
 
 const game = new _PHASER.Game(config);
-console.log(game.width);
 /**
  * LISTENERS
  */

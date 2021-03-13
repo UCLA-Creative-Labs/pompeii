@@ -4,7 +4,6 @@
  *  - Nintendo Mario Tiles, Educational use only
  */
 import Player from './player';
-import NPC from './NPC';
 import Shiba from './shiba';
 // eslint-disable-next-line no-undef
 export default class MainScene extends Phaser.Scene {
