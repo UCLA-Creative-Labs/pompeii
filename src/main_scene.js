@@ -49,6 +49,24 @@ export default class MainScene extends Phaser.Scene {
     // All objects in aboveLayer will collide
     topLayer.setCollisionByExclusion([-1]);
     this.matter.world.convertTilemapLayer(topLayer);
+
+    // Add object to player collisions
+    this.npcs.forEach((npc) => {
+      this.matterCollision.addOnCollideStart({
+        objectA: npc.gameObj,
+        objectB: this.player.gameObj,
+        callback: () => {
+          npc.freeze();
+        },
+      });
+      this.matterCollision.addOnCollideEnd({
+        objectA: npc.gameObj,
+        objectB: this.player.gameObj,
+        callback: () => {
+          npc.unfreeze();
+        },
+      });
+    });
   }
 
   update(time, delta) {

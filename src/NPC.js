@@ -2,13 +2,17 @@ export default class NPC {
   constructor(scene, x, y, avatar) {
     this.scene = scene;
     this.createAnimations();
-    this.npc = this.scene.matter.add.sprite(x, y, avatar, 0);
-    this.npc.body.collideWorldBounds = true;
+    this.gameObj = this.scene.matter.add.sprite(x, y, avatar, 0);
+    this.gameObj.body.collideWorldBounds = true;
+
     this.time = 0;
     this.dir = 0;
-    this.scene.input.keyboard.on('keydown_M', this.debug, this);
+    this.createBody();
+    // Use for debugging
+    // this.scene.input.keyboard.on('keydown_M', this.debug, this);
   }
   debug() {}
+  createBody() {}
   createAnimations() {}
   playAnimations() {}
   getSpeed() {
@@ -24,25 +28,25 @@ export default class NPC {
       this.playAnimations();
       switch (this.dir) {
         case 0: //Left
-          this.npc.setVelocityX(-speed);
+          this.gameObj.setVelocityX(-speed);
           break;
         case 1: //Right
-          this.npc.setVelocityX(speed);
+          this.gameObj.setVelocityX(speed);
           break;
         case 2: //Up
-          this.npc.setVelocityY(speed);
+          this.gameObj.setVelocityY(speed);
           break;
         case 3: //Down
-          this.npc.setVelocityY(-speed);
+          this.gameObj.setVelocityY(-speed);
           break;
         default:
-          this.npc.setVelocity(0);
+          this.gameObj.setVelocity(0);
           break;
       }
     }
   }
   update(time, delta) {
-    this.npc.body.angle = 0;
-    this.move(time, delta);
+    this.gameObj.body.angle = 0;
+    if (!this.gameObj.isStatic()) this.move(time, delta);
   }
 }

@@ -1,8 +1,21 @@
 import NPC from './NPC';
 
 export default class Shiba extends NPC {
-  debug() {
-    this.npc.anims.play('shiba-idle1');
+  createBody() {
+    this.gameObj.setCircle(4, {
+      render: {
+        sprite: { xOffset: 0.05, yOffset: -0.25 },
+      },
+    });
+  }
+  freeze() {
+    this.time = 999;
+    this.gameObj.anims.play('shiba-idle1');
+    this.gameObj.setStatic(true);
+  }
+  unfreeze() {
+    this.time = 0;
+    this.gameObj.setStatic(false);
   }
   createAnimations() {
     const anims = this.scene.anims;
@@ -83,28 +96,28 @@ export default class Shiba extends NPC {
     this.speed = 1;
     switch (this.dir) {
       case 0: //Left
-        this.npc.anims.play('shiba-left');
+        this.gameObj.anims.play('shiba-left');
         break;
       case 1: //Right
         if (Math.random() < 0.5) {
-          this.npc.anims.play('shiba-right1');
+          this.gameObj.anims.play('shiba-right1');
         } else {
-          this.npc.anims.play('shiba-right2');
+          this.gameObj.anims.play('shiba-right2');
           this.speed = 2;
         }
         break;
       case 2: //Up
-        this.npc.anims.play('shiba-up');
+        this.gameObj.anims.play('shiba-up');
         break;
       case 3: //Down
-        this.npc.anims.play('shiba-down');
+        this.gameObj.anims.play('shiba-down');
         break;
       default:
         this.time + 3; //Increase idle time
         if (Math.random() < 0.5) {
-          this.npc.anims.play('shiba-idle1');
+          this.gameObj.anims.play('shiba-idle1');
         } else {
-          this.npc.anims.play('shiba-idle2');
+          this.gameObj.anims.play('shiba-idle2');
         }
         break;
     }
