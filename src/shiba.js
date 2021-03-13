@@ -1,6 +1,9 @@
 import NPC from './NPC';
 
 export default class Shiba extends NPC {
+  debug() {
+    this.npc.anims.play('shiba-idle1');
+  }
   createAnimations() {
     const anims = this.scene.anims;
     this.pastDir = this.dir;
@@ -8,7 +11,7 @@ export default class Shiba extends NPC {
       key: 'shiba-idle1',
       frameRate: 3,
       frames: anims.generateFrameNumbers('shiba', {
-        frames: [20, 21, 23, 24, 25, 26, 25],
+        frames: [20, 21, 23, 24, 25, 26, 24],
       }),
     });
 
@@ -73,7 +76,7 @@ export default class Shiba extends NPC {
   }
   playAnimations() {
     // Don't change animations if direction is the same
-    if (this.dir == this.pastDir) {
+    if (this.dir == this.pastDir || (this.dir > 3 && this.pastDir > 3)) {
       return;
     }
     this.pastDir = this.dir;
@@ -87,7 +90,7 @@ export default class Shiba extends NPC {
           this.npc.anims.play('shiba-right1');
         } else {
           this.npc.anims.play('shiba-right2');
-          this.speed = 4;
+          this.speed = 2;
         }
         break;
       case 2: //Up
@@ -98,9 +101,11 @@ export default class Shiba extends NPC {
         break;
       default:
         this.time + 3; //Increase idle time
-        Math.random() < 0.5
-          ? this.npc.anims.play('shiba-idle1')
-          : this.npc.anims.play('shiba-idle2');
+        if (Math.random() < 0.5) {
+          this.npc.anims.play('shiba-idle1');
+        } else {
+          this.npc.anims.play('shiba-idle2');
+        }
         break;
     }
   }

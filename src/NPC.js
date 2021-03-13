@@ -2,7 +2,7 @@ export default class NPC {
   constructor(scene, x, y, avatar) {
     this.scene = scene;
     this.createAnimations();
-    this.npc = this.scene.matter.add.sprite(x, y, avatar, 9);
+    this.npc = this.scene.matter.add.sprite(x, y, avatar, 0);
     this.npc.body.collideWorldBounds = true;
     this.time = 0;
     this.dir = 0;
