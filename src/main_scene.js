@@ -24,15 +24,19 @@ export default class MainScene extends Phaser.Scene {
 
   create() {
     const map = this.add.tilemap('map');
-    this.matter.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
-    const camera = this.cameras.main;
     const scale = window.innerHeight / map.heightInPixels;
+    this.matter.world.setBounds(
+      0,
+      0,
+      map.widthInPixels * scale,
+      map.heightInPixels * scale,
+    );
+    // Center the camera on the tilemap
+    const camera = this.cameras.main;
     camera.setScroll(-(window.innerWidth / 2 - map.widthInPixels / 2), 0);
-    // Parameters are the name you gave the tileset in Tiled and then the key of the tileset image in
-    // Phaser's cache (i.e. the name you used in preload)
+    // Parameters are the name you gave the tileset in Tiled and then the key of the tileset image in Phaser's cache (i.e. the name you used in preload)
     const tileset = map.addTilesetImage('pokemon_tileset_4', 'tiles');
     // Collision boundaries can be set using Tiled collision editor
-
     map.createStaticLayer('BottomLayer', tileset).setScale(scale, scale);
     const topLayer = map
       .createStaticLayer('TopLayer', tileset)
