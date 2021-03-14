@@ -18,6 +18,10 @@ let config = {
   type: _PHASER.AUTO,
   width: window.innerWidth,
   height: window.innerHeight,
+  scale: {
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+  },
   backgroundColor: '#222222',
   parent: 'game-container',
   scene: [StartScene, MainScene],
