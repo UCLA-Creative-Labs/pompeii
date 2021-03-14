@@ -1,4 +1,3 @@
-
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
@@ -17,9 +16,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [
-              '@babel/preset-env',
-            ],
+            presets: ['@babel/preset-env'],
           },
         },
       },
@@ -32,7 +29,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: [ '.jsx', '.js' ],
+    extensions: ['.jsx', '.js'],
   },
   plugins: [
     new HtmlWebpackPlugin({
