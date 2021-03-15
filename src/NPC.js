@@ -8,6 +8,7 @@ export default class NPC {
     this.time = 0;
     this.dir = 0;
     this.createBody();
+    this.speed = 1;
     // Use for debugging
     // this.scene.input.keyboard.on('keydown_M', this.debug, this);
   }
@@ -15,11 +16,8 @@ export default class NPC {
   createBody() {}
   createAnimations() {}
   playAnimations() {}
-  getSpeed() {
-    return 2;
-  }
   move(_time, delta) {
-    const speed = this.getSpeed();
+    const speed = this.speed;
     this.time -= delta / 1000;
     if (this.time <= 0) {
       // Choose random direction and movement time

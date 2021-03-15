@@ -122,7 +122,4 @@ export default class Shiba extends NPC {
         break;
     }
   }
-  getSpeed() {
-    return this.speed;
-  }
 }
