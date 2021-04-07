@@ -31,15 +31,12 @@ export default class MainScene extends Phaser.Scene {
       map.widthInPixels * scale,
       map.heightInPixels * scale,
     );
-    console.log(scale);
-    console.log(map.widthInPixels * scale);
     // Center the camera on the tilemap
     const camera = this.cameras.main;
     camera.setScroll(
       -(window.innerWidth / 2 - (map.widthInPixels * scale) / 2),
       0,
     );
-    console.log(-(window.innerWidth / 2 - (map.widthInPixels * scale) / 2));
     // Parameters are the name you gave the tileset in Tiled and then the key of the tileset image in Phaser's cache (i.e. the name you used in preload)
 
     const tileset = map.addTilesetImage('pompeii', 'tiles');

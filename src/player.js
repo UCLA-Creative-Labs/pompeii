@@ -5,12 +5,13 @@ export default class Player {
     this.cursors = cursors;
 
     // Set up player boundaries
-    this.player.setCircle(4, {
+    this.player.setCircle(12, {
       render: {
         sprite: { xOffset: 0, yOffset: 0.25 },
       },
     });
-    this.player.body.scale(0.75, 0.75);
+    this.player.scaleX = 0.75;
+    this.player.scaleY = 0.75;
   }
 
   update() {
