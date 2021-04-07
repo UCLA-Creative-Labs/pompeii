@@ -1,0 +1,60 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "src/assets/tilemaps/pompeii.tmx",
+    "expandedProjectPaths": [
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "": {
+            "scaleInEditor": 1
+        },
+        "pompeii_tiles/pompeii.tmx": {
+            "scale": 0.125,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 3340,
+                "y": 1968
+            }
+        },
+        "pompeii_tiles/pompeii.tmx#pompeii": {
+            "scaleInDock": 1,
+            "scaleInEditor": 3
+        },
+        "src/assets/tilemaps/pompeii.tmx": {
+            "scale": 0.25,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 3162,
+                "y": -68
+            }
+        },
+        "src/assets/tilemaps/pompeii.tmx#tiles (4)": {
+            "scaleInDock": 1
+        },
+        "src/assets/tilemaps/untitled.tmx": {
+            "scale": 0.02540422885572139,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 3149.0820073439418,
+                "y": 1633.5862913096698
+            }
+        }
+    },
+    "last.exportedFilePath": "/home/don/pokemon/pompeii_tiles",
+    "last.imagePath": "/home/don/pokemon/src/assets/tilesets",
+    "map.lastUsedExportFilter": "JSON map files (*.json)",
+    "map.lastUsedFormat": "tmx",
+    "map.width": 200,
+    "openFiles": [
+        "src/assets/tilemaps/pompeii.tmx"
+    ],
+    "project": "",
+    "recentFiles": [
+        "src/assets/tilemaps/pompeii.tmx",
+        "pompeii_tiles/pompeii.tmx",
+        "src/assets/tilemaps/untitled.tmx"
+    ]
+}

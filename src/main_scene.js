@@ -18,8 +18,8 @@ export default class MainScene extends Phaser.Scene {
       'https://www.mikewesthad.com/phaser-3-tilemap-blog-posts/post-1/assets/atlas/atlas.json',
     );
 
-    this.load.image('tiles', 'assets/tilesets/pokemon_tileset_cropped.png');
-    this.load.tilemapTiledJSON('map', 'assets/tilemaps/pokemon_test_map.json');
+    this.load.image('tiles', 'assets/tilesets/Pompeii.png');
+    this.load.tilemapTiledJSON('map', 'assets/tilemaps/pompeii.json');
   }
 
   create() {
@@ -31,18 +31,25 @@ export default class MainScene extends Phaser.Scene {
       map.widthInPixels * scale,
       map.heightInPixels * scale,
     );
+    console.log(scale);
+    console.log(map.widthInPixels * scale);
     // Center the camera on the tilemap
     const camera = this.cameras.main;
-    camera.setScroll(-(window.innerWidth / 2 - map.widthInPixels / 2), 0);
+    camera.setScroll(
+      -(window.innerWidth / 2 - (map.widthInPixels * scale) / 2),
+      0,
+    );
+    console.log(-(window.innerWidth / 2 - (map.widthInPixels * scale) / 2));
     // Parameters are the name you gave the tileset in Tiled and then the key of the tileset image in Phaser's cache (i.e. the name you used in preload)
-    const tileset = map.addTilesetImage('pokemon_tileset_4', 'tiles');
+
+    const tileset = map.addTilesetImage('pompeii', 'tiles');
     // Collision boundaries can be set using Tiled collision editor
-    map.createStaticLayer('BottomLayer', tileset).setScale(scale, scale);
+    map.createStaticLayer('Bottom Layer', tileset).setScale(scale, scale);
     const topLayer = map
-      .createStaticLayer('TopLayer', tileset)
+      .createStaticLayer('Top Layer', tileset)
       .setScale(scale, scale);
     this.cursors = this.input.keyboard.createCursorKeys();
-    this.player = new Player(this, this.cursors, 500, 500);
+    this.player = new Player(this, this.cursors, 400, 500);
 
     // All objects in aboveLayer will collide
     topLayer.setCollisionByExclusion([-1]);
