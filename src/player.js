@@ -3,6 +3,15 @@ export default class Player {
     this.gameObj = scene.matter.add.sprite(x, y, 'atlas', 'misa-front');
     this.gameObj.body.collideWorldBounds = true;
     this.cursors = cursors;
+
+    // Set up player boundaries
+    this.player.setCircle(12, {
+      render: {
+        sprite: { xOffset: 0, yOffset: 0.25 },
+      },
+    });
+    this.player.scaleX = 0.75;
+    this.player.scaleY = 0.75;
   }
 
   update() {
