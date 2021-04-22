@@ -4,6 +4,7 @@
  *  - Nintendo Mario Tiles, Educational use only
  */
 import Player from './player';
+import Shiba from './shiba';
 // eslint-disable-next-line no-undef
 export default class MainScene extends Phaser.Scene {
   constructor() {
@@ -17,6 +18,11 @@ export default class MainScene extends Phaser.Scene {
       'https://www.mikewesthad.com/phaser-3-tilemap-blog-posts/post-1/assets/atlas/atlas.png',
       'https://www.mikewesthad.com/phaser-3-tilemap-blog-posts/post-1/assets/atlas/atlas.json',
     );
+    // Load dog assets
+    this.load.spritesheet('shiba', 'assets/spritesheets/dog.png', {
+      frameWidth: 32,
+      frameHeight: 32,
+    });
 
     this.load.image('tiles', 'assets/tilesets/Pompeii.png');
     this.load.tilemapTiledJSON('map', 'assets/tilemaps/pompeii.json');
@@ -48,12 +54,36 @@ export default class MainScene extends Phaser.Scene {
     this.cursors = this.input.keyboard.createCursorKeys();
     this.player = new Player(this, this.cursors, 400, 500);
 
+    // Create NPCs
+    this.npcs = [];
+    // Create shiba
+    this.shiba = new Shiba(this, 400, 400, 'shiba');
+    this.npcs.push(this.shiba);
     // All objects in aboveLayer will collide
     topLayer.setCollisionByExclusion([-1]);
     this.matter.world.convertTilemapLayer(topLayer);
+
+    // Add object to player collisions
+    this.npcs.forEach((npc) => {
+      this.matterCollision.addOnCollideStart({
+        objectA: npc.gameObj,
+        objectB: this.player.gameObj,
+        callback: () => {
+          npc.freeze();
+        },
+      });
+      this.matterCollision.addOnCollideEnd({
+        objectA: npc.gameObj,
+        objectB: this.player.gameObj,
+        callback: () => {
+          npc.unfreeze();
+        },
+      });
+    });
   }
 
-  update() {
+  update(time, delta) {
     this.player.update();
+    this.npcs.forEach((npc) => npc.update(time, delta));
   }
 }

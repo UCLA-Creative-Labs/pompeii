@@ -15,21 +15,23 @@ export default class StartScreen extends Phaser.Scene {
       'pointerup',
       function () {
         this.scene.start('MainScene');
-      }, this,
+      },
+      this,
     );
     this.input.keyboard.on(
       'keydown',
       function () {
         this.scene.start('MainScene');
-      }, this,
+      },
+      this,
     );
     this.time.addEvent({
       delay: 5000,
       loop: false,
       callback: () => {
-          this.scene.start('MainScene');
+        this.scene.start('MainScene');
       },
-  });
+    });
     // You can access the game's config to read the width & height
     const { width, height } = this.sys.game.config;
 
