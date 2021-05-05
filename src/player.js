@@ -4,14 +4,16 @@ export default class Player {
     this.gameObj.body.collideWorldBounds = true;
     this.cursors = cursors;
 
+    
     // Set up player boundaries
-    this.player.setCircle(12, {
+    this.gameObj.setCircle(12, {
       render: {
         sprite: { xOffset: 0, yOffset: 0.25 },
       },
     });
-    this.player.scaleX = 0.75;
-    this.player.scaleY = 0.75;
+    this.gameObj.scaleX = 0.75;
+    this.gameObj.scaleY = 0.75;
+
   }
 
   update() {
@@ -26,15 +28,19 @@ export default class Player {
     // Horizontal movement
     if (this.cursors.left.isDown) {
       this.gameObj.setVelocityX(-speed);
+      print('apple');
     } else if (this.cursors.right.isDown) {
       this.gameObj.setVelocityX(speed);
+      print('banana');
     }
 
     // Vertical movement
     if (this.cursors.up.isDown) {
       this.gameObj.setVelocityY(-speed);
+      print('orange');
     } else if (this.cursors.down.isDown) {
       this.gameObj.setVelocityY(speed);
+      print('pear');
     }
   }
 }
