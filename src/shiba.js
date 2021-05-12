@@ -2,11 +2,11 @@ import NPC from './NPC';
 
 export default class Shiba extends NPC {
   createBody() {
-    //this.gameObj.setCircle(4, {
-    //  render: {
-    //    sprite: { xOffset: 0.05, yOffset: -0.25 },
-    //  },
-    //});
+    this.gameObj.setCircle(4, {
+      render: {
+        sprite: { xOffset: 0.05, yOffset: -0.25 },
+      },
+    });
   }
   freeze() {
     this.time = 999;

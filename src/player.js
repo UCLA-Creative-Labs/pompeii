@@ -3,7 +3,7 @@ export default class Player {
     this.gameObj = scene.matter.add.sprite(x, y, 'atlas', 'misa-front');
     this.gameObj.body.collideWorldBounds = true;
     this.cursors = cursors;
-
+    
     
     // Set up player boundaries
     this.gameObj.setCircle(12, {
@@ -16,7 +16,8 @@ export default class Player {
 
   }
 
-  update() {
+  update(cursors) {
+    
     const speed = 2;
 
     // Stop any previous movement from the last frame
@@ -25,22 +26,22 @@ export default class Player {
     // Keep gameObj vertical
     this.gameObj.body.angle = 0;
 
+    
     // Horizontal movement
-    if (this.cursors.left.isDown) {
+    if (cursors.left.isDown) {
       this.gameObj.setVelocityX(-speed);
-      print('apple');
-    } else if (this.cursors.right.isDown) {
+    } else if (cursors.right.isDown) {
       this.gameObj.setVelocityX(speed);
-      print('banana');
     }
 
+    
     // Vertical movement
-    if (this.cursors.up.isDown) {
+    if (cursors.up.isDown) {
       this.gameObj.setVelocityY(-speed);
-      print('orange');
-    } else if (this.cursors.down.isDown) {
+    } else if (cursors.down.isDown) {
       this.gameObj.setVelocityY(speed);
-      print('pear');
     }
+
+    //this.gameObj.body.velocity.normalize().scale(speed);
   }
 }

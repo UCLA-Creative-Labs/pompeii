@@ -51,7 +51,12 @@ export default class MainScene extends Phaser.Scene {
     const topLayer = map
       .createStaticLayer('Top Layer', tileset)
       .setScale(scale, scale);
-    this.cursors = this.input.keyboard.createCursorKeys();
+    this.cursors = {
+      left: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A),
+      right: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D),
+      up: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W),
+      down: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S),
+    };
     this.player = new Player(this, this.cursors, 400, 500);
 
     // Create NPCs
@@ -64,6 +69,7 @@ export default class MainScene extends Phaser.Scene {
     this.matter.world.convertTilemapLayer(topLayer);
 
     // Add object to player collisions
+    
     this.npcs.forEach((npc) => {
       this.matterCollision.addOnCollideStart({
         objectA: npc.gameObj,
@@ -80,10 +86,34 @@ export default class MainScene extends Phaser.Scene {
         },
       });
     });
+
+    // Add collision zones
+    this.zones = [];
+    
+    this.deneve = new Phaser.GameObjects.Zone(this, 100, 100, 100, 100);
+    this.zones.push(this.deneve);
+    
+    this.zones.forEach((zone) => {
+      this.matterCollision.addOnCollideStart({
+        objectA: zone,
+	objectB: this.player.gameObj,
+	callback: () => {
+          console.log('Outside deneve');
+	},
+      });
+      this.matterCollision.addOnCollideEnd({
+        objectA: zone.gameObj,
+	objectB: this.player.gameObj,
+	callback: () => {
+
+	},
+      });
+    });
+    
   }
 
   update(time, delta) {
-    this.player.update();
+    this.player.update(this.cursors);
     this.npcs.forEach((npc) => npc.update(time, delta));
   }
 }
