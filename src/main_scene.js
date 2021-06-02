@@ -87,33 +87,47 @@ export default class MainScene extends Phaser.Scene {
       });
     });
 
+    //var bplaterect = this.add.rectangle(580, 450, 100, 80, 0xff0000);
+    //var deneverect = this.add.rectangle(170, 550, 100, 130, 0xff0000);
+    //var covelrect = this.add.rectangle(1020, 330, 100, 150, 0xff0000);
+    //var feastrect = this.add.rectangle(600, 150, 100, 100, 0xff0000);
+    
     // Add collision zones
     this.zones = [];
     
-    this.deneve = new Phaser.GameObjects.Zone(this, 100, 100, 100, 100);
+    this.deneve = new Phaser.GameObjects.Zone(this, 170, 550, 100, 130);
     this.zones.push(this.deneve);
-    
-    this.zones.forEach((zone) => {
-      this.matterCollision.addOnCollideStart({
-        objectA: zone,
-	objectB: this.player.gameObj,
-	callback: () => {
-          console.log('Outside deneve');
-	},
-      });
-      this.matterCollision.addOnCollideEnd({
-        objectA: zone.gameObj,
-	objectB: this.player.gameObj,
-	callback: () => {
-
-	},
-      });
-    });
-    
+    this.bplate = new Phaser.GameObjects.Zone(this, 580, 450, 100, 80);
+    this.zones.push(this.bplate);
+    this.covel = new Phaser.GameObjects.Zone(this, 1020, 330, 100, 150);
+    this.zones.push(this.covel);
+    this.feast = new Phaser.GameObjects.Zone(this, 600, 150, 100, 100);
+    this.zones.push(this.feast);
   }
 
   update(time, delta) {
     this.player.update(this.cursors);
     this.npcs.forEach((npc) => npc.update(time, delta));
+
+    //You can put callbacks here for zone collisions
+    
+    var pb = this.player.gameObj.getBounds();
+    if(Phaser.Geom.Rectangle.Overlaps(pb, this.deneve.getBounds())){
+      console.log('Outside deneve!');
+    } else if(Phaser.Geom.Rectangle.Overlaps(pb, this.bplate.getBounds())){
+      console.log('Outside bplate');
+    } else if(Phaser.Geom.Rectangle.Overlaps(pb, this.covel.getBounds())){
+      console.log('Outside covel!');
+    } else if(Phaser.Geom.Rectangle.Overlaps(pb, this.feast.getBounds())){
+      console.log('Outside feast!');
+    }
+    
+/*
+    this.zones.forEach((zone) => {
+      if(Phaser.Geom.Rectangle.Overlaps(this.player.gameObj.getBounds(), zone.getBounds())){
+        console.log('in zone!!');
+      }
+    });
+*/
   }
 }
